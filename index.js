@@ -8,22 +8,22 @@ const questions = inquirer
         {
             type: 'input',
             message: 'What is your application title',
-            name:'Title'
+            name:'title'
         },
         {
             type: 'input',
             message: 'Describe your application',
-            name: 'App'
+            name: 'description'
         },
         {
             type: 'input',
             message: 'What are the installation instructions',
-            name: 'Install'
+            name: 'install'
         },
         {
             type: 'input',
             message:'How do you use the app',
-            name:'Usage'
+            name:'usage'
         },
         {
             type: 'list',
@@ -47,9 +47,9 @@ const questions = inquirer
             name:'Questions'
         }
     ])
-    .then((answers)=>{
+    .then((response)=>{
 // This is my data
-        const readMePage = generateMarkdown(answers);
+        const readMePage = generateMarkdown(response);
         
         fs.writeToFile('readme.md', readMePage, (err) =>
         err ? console.log(err) : console.log('Successfully created ReadMe.md') 
@@ -58,9 +58,9 @@ const questions = inquirer
 
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {
+// function writeToFile(fileName, data) {
 
-}
+// }
 
 // TODO: Create a function to initialize app
 function init() {}
